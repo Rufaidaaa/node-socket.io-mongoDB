@@ -12,13 +12,21 @@ const server = http.createServer((req, res) => {
   switch (req.url) {
     case "/":
       route += "index.html";
+      res.statusCode = 200;
       break;
     case "/contact":
       route += "contact.html";
+      res.statusCode = 200;
+      break;
+    case "/contact-us":
+      res.statusCode = 301;
+      res.setHeader("location", "/contact");
+      res.end();
       break;
 
     default:
       route += "404.html";
+      res.statusCode = 404;
       break;
   }
   fs.readFile(route, (err, data) => {

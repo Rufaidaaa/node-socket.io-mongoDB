@@ -3,7 +3,9 @@ const port = 3000;
 const hostname = "localhost";
 
 const server = http.createServer((req, res) => {
-  console.log(req.method);
+  res.setHeader("Content-type", "text/html");
+  res.write("<h1>hello</h1>");
+  res.end();
 });
 
 server.listen(port, hostname, () => {

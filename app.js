@@ -3,7 +3,7 @@ const port = 3000;
 const hostname = "localhost";
 
 const server = http.createServer((req, res) => {
-  console.log(req);
+  console.log(req.method);
 });
 
 server.listen(port, hostname, () => {
